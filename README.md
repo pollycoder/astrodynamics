@@ -1,4 +1,4 @@
-# Tsinghua University space dynamics course learning warehouse
+# Repository for Tsinghua University Astrodynamics Course
 
 ## Content
 1. Two body problem: the conversion of six radical number of orbit and Descartes position velocity, the conversion and evolution of three near-point angles, the initial value of orbit, Newton iteration.
