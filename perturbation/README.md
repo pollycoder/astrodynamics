@@ -1,23 +1,23 @@
-# 轨道摄动 - J2摄动
+# Orbital perturbation - J2 perturbation
 
-## 原始二体轨道运动方程(ODE)
+## Original two-body orbital motion equation (ODE)
 
 ```matlab
 dRVdt = twoBodyOde(t, RV, mu)
 ```
 
-## $J_2$摄动下的二体轨道运动方程
+## $J_2$ equation of two body orbital motion under perturbation
 
-1. 平均法：
+1. Average Method:
 
 ```matlab
 [rt, vt] = rv02rvf_aveJ2(r0, v0, dt, mu, Re)
 ```
 
-2. 精确$J_2$摄动（ODE）
+2. Exact $J_2$ perturbation (ODE)
 
 ```matlab
 dRVdt = twoBodyJ2Ode(t, RV, mu, Re)
 ```
 
-ODE方程请使用MATLAB的ODE求解器进行求解（推荐[ode45](https://www.mathworks.com/help/matlab/ref/ode45.html)）。
+The ODE equations please use MATLAB to solve the ODE solver [ode45](https://www.mathworks.com/help/matlab/ref/ode45.html) (recommended).

@@ -1,34 +1,33 @@
-# 星际飞行
+# Interplanetary flight
 
-## 齐奥尔科夫斯基方程：
+## Tsiolkowski equation:
 
 ```matlab
 [mf, dm] = impulseFuel(m0, dv, Isp, g0)
 ```
 
-根据齐奥尔科夫斯基方程计算燃料消耗。
+Fuel consumption is calculated according to Tsiolkovsky equation.
 
-$m_f$表示终末质量，$dm$表示燃料消耗；
+$m_f$ represents final mass and $dm$ represents fuel consumption.
 
-$m_0$表示初始质量，$dv$表示脉冲，$I_{SP}$表示比冲，$g_0$表示重力加速度（一般是$9.8m/s^2$）。
+$m_0$ represents the initial mass, $dv$ represents the pulse, $I_{SP}$ represents the specific impulse, and $g_0$ represents the acceleration of gravity (typically $9.8m/s^2$).
 
-## 引力辅助 - 等效脉冲模型
+## Gravity assist - equivalent pulse model
 
 ```matlab
 [vMid1, vMid2, dvGA] = SOI_opt(v1, v2, vPlanet, muPlanet, rp, phi)
 ```
 
-$v_{Mid_1}$表示入影响球的剩余速度，$v_{Mid_2}$表示出影响球的剩余速度，$dv_{GA}$表示借力总脉冲；
+$v_{Mid_1}$ represents the remaining velocity of the influence sphere, $v_{Mid_2}$ represents the remaining velocity of the influence sphere, and $dv_{GA}$ represents the total pulsing force.
 
-$v_1,v_2$表示太阳参考系下入影响球和出影响球的速度；
+$v_1,v_2$represent the velocities of the incoming and outgoing spheres in the solar reference system;
 
-$v_{Planet}$表示行星在借力时的速度，$\mu_{Planet}$表示行星的引力系数；
+$v_{Planet}$ represents the velocity of the Planet when it pulls, $\mu_{Planet}$ represents the gravitational coefficient of the planet;
 
-$r_p$表示借力高度，$\phi$表示轨道面转角，详细模型可查询《深空探测动力学与控制》第3章。
+$r_p$ indicates the borrowing altitude and $\phi$indicates the Angle of the orbital plane. The detailed model can be found in Chapter 3 of the Dynamics and Control of Deep Space Exploration.
 
-## 目标函数
+## Objective function
 
-`biGA_obj`，`impulse_obj`，在根目录下README已有介绍。
+'biGA_obj', 'impulse_obj', already covered in the root README.
 
-这两个目标函数都已经处理成无约束的目标函数，处理方法为罚函数法，这种方法较为简单，但效果并非最佳，建议使用MATLAB提供的PSO优化器进行优化。（也可以使用fmincon进行有约束优化，效果更佳）
-
+These two objective functions have been processed into unconstrained objective functions, and the processing method is penalty function method, which is relatively simple, but the effect is not optimal. It is recommended to use the PSO optimizer provided by MATLAB for optimization. (You can also use fmincon for constrained optimization for better results)

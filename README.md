@@ -1,14 +1,16 @@
-# 清华大学航天动力学课程辅助学习程序库
+# Astrodynamics - Code Material Repository
 
-本仓库供清华大学航天动力学课程学习使用，其主要目的是通过可视化和算例，让学习本课的同学可以动手实验课上所学，以期对课程内容有更加直观的认识。
+The repository is for Astrodynamics course in Tsinghua University, it is designed to help learners of this course to do experiements with what is taught in course through visualization and examples, so as to have a more intuitive understanding of the course.
 
-每个模块目录下都有对应的README，运行程序前请务必阅读。
+There are READMEs under each directory, please read them before running the code.
 
-如有问题和建议欢迎在gitlab提issue，或email联系：pollyjoe2003@gmail.com
+If there are any problems, please raise your questions in Issue column.
+
+Or contact me through email: pollyjoe2003@gmail.com
 
 ## 环境配置要求
 
-请确保MATLAB已安装[Global Optimization Toolbox](https://www.mathworks.com/products/global-optimization.html)，使用教程可查询MATLAB官网。
+Please make sure that [Global Optimization Toolbox](https://www.mathworks.com/products/global-optimization.html) is installed on your MATLAB, tutorials could be found on the official website of MATLAB.
 
 ## 文件结构：
 
@@ -26,20 +28,20 @@
 └── test_examples
 ```
 
-| 文件名称              | 内容对应                                                     |
+| File Name             | Content                                                      |
 | --------------------- | ------------------------------------------------------------ |
-| /OrbitElement         | 二体问题轨道六根数与笛卡尔位置速度的转换、三大近点角的转换和演化、轨道初值、牛顿迭代。<br/>说明：支持椭圆、双曲线、抛物线三种情况。 |
-| /maneuvers            | 轨道机动：霍曼转移、双椭圆三脉冲转移，兼容共面与非共面情况，并有不同工况（圆轨半径比$r_2/r_1$、倾角之差$i_2-i_1$）下两种转移方法的优劣比较。 |
-| /relativeMotion       | 相对运动：周期解条件下与一般条件下的轨迹及$X,Y,Z$坐标随时间的变化的比较 |
-| /perturbation         | 轨道摄动：$J_2$摄动平均法、$J_2$摄动下的二体问题微分方程解法。后期会加入其他摄动力的程序。 |
-| /interplanetaryFlight | 星际飞行：影响球等效脉冲模型、齐奥尔科夫斯基方程求解燃料消耗、双脉冲轨迹优化、含引力辅助的脉冲轨迹优化。 |
-| /plot                 | 绘图模块                                                     |
-| /test_examples        | 测试算例                                                     |
-| summary.pdf           | 课程内容梳理                                                 |
+| /OrbitElement         | The transformation of six radical number of orbit and Cartesian position velocity, the transformation and evolution of three near-point angles, the initial value of orbit, Newton iteration. <br /> **Note: Supports ellipse, hyperbola, and parabola.** |
+| /maneuvers            | Orbit maneuver: Hohmann transfer, double ellipse triple pulse transfer, compatible with coplanar and non-coplanar cases, and the advantages and disadvantages of two transfer methods under different working conditions (orbit radius ratio $r_2/r_1$, inclination difference $i_2-i_1$) are compared. |
+| /relativeMotion       | Relative motion: Comparison of the trajectory and the $X,Y,Z$coordinates with time under periodic and general conditions |
+| /perturbation         | Orbital perturbation: average method of $J_2$perturbation, solution of two-body differential equation under $J_2$perturbation. Other perturbative processes will be added later. |
+| /interplanetaryFlight | Interplanetary flight: Influence spherical equivalent pulse model, Tsiolkowski equation solving fuel consumption, double pulse trajectory optimization, pulse trajectory optimization with gravity assistance. |
+| /plot                 | Plotting module                                              |
+| /test_examples        | Examples                                                     |
+| summary.pdf           | Summary of the course                                        |
 
-## 算例简介
+## Introduction of Examples
 
-算例目录：
+Content:
 
 ```shell
 .
@@ -52,17 +54,17 @@
 └── relative_test.m
 ```
 
-| 算例名称          | 测试内容                                                     |
+| Name              | Content                                                      |
 | ----------------- | ------------------------------------------------------------ |
-| hohmann_test      | 霍曼转移，兼容共面与非共面两种情况。可修改参数$r_1,r_2,i_1,i_2$，观察转移轨道的形状。 |
-| biE_test          | 双椭圆三脉冲转移，兼容共面与非共面情况。可修改参数$r_1,r_2,i_1,i_2$，观察转移轨道的形状。 |
-| hohmannVSbiE      | 不同【轨道半径比 / 轨道倾角之差】下，霍曼转移与双椭圆三脉冲转移的比较。轨道半径比过大或倾角差别过大时，均有双椭圆三脉冲转移更优的结论。 |
-| perturbation_test | $J_2$摄动平均法、$J_2$摄动下的二体问题微分方程求解之后的轨迹比较，以及角动量的变化。应观察到摄动下角动量扫过的曲面是圆锥，对应着升交点退行现象。<br>另外还可以观察平均法和微分方程求解结果的终点位置，由此可以发现轨道根数中只有真近点角是快变量，其余都是慢变量。 |
-| relative_test     | C-W方程周期解条件下和一般情况的轨迹比较，以及$X,Y,Z$随时间的变化图线，现象应和课上所讲符合。 |
-| impulse_test      | 以双脉冲地火转移为例演示轨迹优化基本方法。对应的目标函数位置：`./interplanetaryFlight/impulse_obj.m`，可观察到最优轨迹和霍曼转移轨迹相近。 |
-| biGA_test         | 以火星双借力采矿为例演示等效脉冲模型下，含行星借力的轨迹优化方法。对应的目标函数位置：`./interplanetaryFlight/biGA_obj.m` |
+| hohmann_test      | Hohmann transfer, compatible with both coplanar and non-coplanar cases. Parameters $r_1,r_2,i_1,i_2$can be modified to observe the shape of the transfer orbit. |
+| biE_test          | Double elliptic triple pulse transfer, compatible with coplanar and non-coplanar cases. Parameters $r_1,r_2,i_1,i_2$can be modified to observe the shape of the transfer orbit. |
+| hohmannVSbiE      | Comparison of Hohmann transfer and double elliptic triple pulse transfer under different **orbital radius ratio/orbital inclination difference**. When the ratio of orbit radius is too large or the difference of inclination is too large, it is concluded that the double ellipse triple pulse transfer is better. |
+| perturbation_test | The average method of $J_2$perturbation, the comparison of trajectories after solving the differential equations of the two-body problem under $J_2$perturbation, and the change of angular momentum. It should be observed that the surface swept by the angular momentum under the perturbation is a cone, corresponding to the phenomenon of the ascending node regression. <br/> In addition, we can also observe the end point position of the average method and the solution result of the differential equation, from which we can find that only the true near-point Angle is a fast variable in the orbital root number, and the rest are slow variables. |
+| relative_test     | The comparison of the trajectories of C-W equation under the condition of periodic solution with the general case, as well as the variation of $X,Y and Z$over time, the phenomena should be consistent with what we have said in class. |
+| impulse_test      | The basic method of trajectory optimization is demonstrated with the example of dual-pulse ground fire transfer. The corresponding objective function location: `. / interplanetaryFlight impulse_obj. M `, can be observed that the optimal trajectory and horman transfer trajectory. |
+| biGA_test         | The trajectory optimization method with planetary force under the equivalent pulse model is demonstrated with the example of Mars double force mining. The corresponding objective function location: `. / interplanetaryFlight biGA_obj. M ` |
 
-## 致谢
+## Acknowledgement
 
-特别感谢我们的授课老师清华大学航天航空学院的蒋方华老师、助教吴子鹏师兄，以及清华航天动力学与控制实验室的张众师兄。蒋老师和子鹏师兄在课程学习过程中给予了我很大的帮助和指导，张众师兄给本库的设计提供了很多有用的建议。同时，本学习程序库中的部分程序也出自他们之手，其中星际飞行部分的Lambert求解器程序由蒋老师提供。
+Special thanks to our teacher Professor Fanghua Jiang from Department of Aeronautics and Astronautics, Tsinghua University, our TA Zipeng Wu , and Zhong Zhang from Tsinghua Aerospace Dynamics and Control Laboratory. Prof. Jiang and Zi Peng Wu gave me a lot of help and guidance in the course learning process, and Zhong Zhang provided a lot of useful suggestions for the design of the library. At the same time, some of the programs in this learning program library are also from their hands, among which the Lambert solver program of the interstellar flight part is provided by Prof. Jiang.
 

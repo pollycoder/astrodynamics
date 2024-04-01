@@ -1,25 +1,31 @@
-# 轨道机动——特殊转移轨道
+# Maneuver - Special transfer orbit
 
-## 霍曼转移
+## Homan transfer
 
 ```matlab
 [dv1, dv2, dv, dt, coeh] = hohmann(r1, r2, i1, i2, mu)
 ```
 
-$dv_1, dv_2$分别表示出发和到达的脉冲，$dv$表示特征速度，$dt$表示转移时间，$coeh$表示转移轨道的三个根数：$a,e,i$；
+$dv_1$ and $dv_2$ represent the departure and arrival pulses respectively, $dv$ represents the characteristic velocity;
 
-$r_1, r_2$分别表示初始轨道和终末轨道（均为圆轨道）的半径，$i_1,i_2$分别表示初始轨道和终末轨道的倾角；$\mu$表示中心天体的引力系数。
+$dt$ represents the transfer time;
 
-## 双椭圆三脉冲转移
+$coeh$ represents the three roots of the transfer orbit: $a,e,i$; 
+
+$r_1, r_2$ represent the radius of initial orbit and final orbit (both circular orbits); 
+
+$i_1,i_2$ represent the inclination of initial orbit and final orbit, respectively. $\mu$indicates the gravitational coefficient of the central object.
+
+## Double elliptic triple pulse transfer
 
 ```matlab
 [DV, dv, dt, at, et, it] = double_ellipse(r1, r2, i1, i2, mu)
 ```
 
-$DV(len=3)$分别表示出发、中间、到达三次脉冲的大小；
+$DV(len=3)$represents the size of the starting, middle and arriving pulses respectively.
 
-$dv$表示特征速度，$dt$表示转移时间；
+$dv$ represents the characteristic speed and $dt$represents the transfer time.
 
-$a_t,e_t,i_t$（均有$len=2$）分别表示两段转移轨道的半长轴、偏心率、轨道倾角。
+$a_t,e_t$, and $i_t$ (all with $len=2$) represent the semi-major axis, eccentricity, and orbital inclination of the two transfer orbits, respectively.
 
-$\textcolor{red}{注意：轨道倾角在非共面时增加了一步优化过程。}$
+$\textcolor{red}{Note:~orbital~inclination~adds~a~step~to~the~ optimization~ process~ when~ non-coplanar. } $

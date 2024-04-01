@@ -1,9 +1,9 @@
-# 相对运动
+# Relative movement
 
-运动方程：
+Equation of motion:
 
 ```matlab
 dRVdt = relativeODE(t, RV)
 ```
 
-使用MATLAB提供的ODE求解器求解（推荐[ode45](https://www.mathworks.com/help/matlab/ref/ode45.html)）。
+Use MATLAB ODE solver to solve [ode45](https://www.mathworks.com/help/matlab/ref/ode45.html) (recommended).
