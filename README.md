@@ -8,11 +8,11 @@ If there are any problems, please raise your questions in Issue column.
 
 Or contact me through email: pollyjoe2003@gmail.com
 
-## 环境配置要求
+## Environment requirements
 
 Please make sure that [Global Optimization Toolbox](https://www.mathworks.com/products/global-optimization.html) is installed on your MATLAB, tutorials could be found on the official website of MATLAB.
 
-## 文件结构：
+## Structure：
 
 ```shell
 .
