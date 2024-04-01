@@ -12,5 +12,6 @@ dRVdt(1:3) = RV(4:6);                           % dr = v
 aJ2 = perJ2(RV(1:3), mu, Re);
 
 % Two-body equation with perturbation
+r = norm(RV(1:3));
 dRVdt(4:6) = -mu / r^3 * RV(1:3) + aJ2;
 end

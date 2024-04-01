@@ -4,6 +4,9 @@
 % For parabola, replace a with p
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function dt = f0ft2dt(f0, ft, a, e, mu)
+if nargin == 4
+    mu = 398600;
+end
 n = sqrt(mu / a^3);                         % Mean angular velocity
 if e < 0
     error("Wrong input e. e>0.");

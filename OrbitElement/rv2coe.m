@@ -17,6 +17,10 @@
 %   coe(6): f, true anomaly
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function coe = rv2coe(CartesianR, CartesianV, mu)
+if nargin == 2
+    mu = 398600;
+end
+
 r = norm(CartesianR);
 v = norm(CartesianV);
 

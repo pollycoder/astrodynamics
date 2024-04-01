@@ -55,7 +55,8 @@ dv = dv1 + dv2 + dv3;
 %d2v = [diff(dv, a1); diff(dv, ih1); diff(dv, ih2)];
 dv = @(x)double(subs(dv, {a1, ih1, ih2}, {x(1), x(2), x(3)}));
 x0 = [2 * (r1 + r2); i1; i2];
-output = fminunc(dv, x0);
+options = optimoptions("fminunc", "Display", "off");
+output = fminunc(dv, x0, options);
 
 % Transfer orbit 1
 at(1) = output(1);
@@ -79,6 +80,6 @@ if ~isreal(dv)
 end
 
 % Transfer time
-dt = (T1 + T2) / 2;
+dt = [T1, T2] ./ 2;
 
 end

@@ -16,11 +16,12 @@
 %   dv2: arrival impulse
 %   dv: total impulse
 %   dt: transfer time
-%   ah: semi-major axis of the transfer orbit
-%   eh: eccentricity of the trasfer orbit
-%   ih: inclination of the trasfer orbit
+%   coeh: orbit elements (only a,e,i)
+%       ah: semi-major axis of the transfer orbit
+%       eh: eccentricity of the trasfer orbit
+%       ih: inclination of the trasfer orbit
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [dv1, dv2, dv, dt, ah, eh, ih] = hohmann(r1, r2, i1, i2, mu)
+function [dv1, dv2, dv, dt, coeh] = hohmann(r1, r2, i1, i2, mu)
 if nargin < 5
     mu = 1.327e11;
 end
@@ -60,4 +61,6 @@ dv1 = double(subs(dv1, theta, ih));
 dv2 = double(subs(dv2, theta, ih));
 dv = double(subs(dv, theta, ih));
 
+% Orbit element
+coeh = [ah, eh, ih];
 end
